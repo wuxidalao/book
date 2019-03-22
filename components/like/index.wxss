@@ -1,0 +1,20 @@
+/* components/like/index.wxss */
+.container {
+    display: inline-flex;
+    flex-direction: row;
+    padding: 10rpx;
+}
+
+.container image {
+    width: 32rpx;
+    height: 28rpx;
+}
+
+.container text {
+    font-size: 20rpx;
+    color: #333;
+    position: relative;
+    bottom: 10rpx;
+    left: 0rpx;
+    line-height: 20rpx;
+}
