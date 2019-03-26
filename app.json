@@ -1,36 +1,36 @@
 {
-    "pages": [
-        "pages/classic/classic",
-        "components/like/index"
-    ],
-    "window": {
-        "backgroundTextStyle": "dark",
-        "enablePullDownRefresh": true,
-        "navigationBarBackgroundColor": "#ffffff",
-        "navigationBarTitleText": "时光",
-        "navigationBarTextStyle": "black",
-        "navigationStyle": "default",
-        "backgroundColor": "#cccccc"
-    },
-    "tabBar": {
-        "color": "#000",
-        "selectedColor": "#666",
-        "backgroundColor": "#ccc",
-        "borderStyle": "white",
-        "position": "bottom",
-        "list": [
-            {
-                "pagePath": "pages/classic/classic",
-                "text": "001",
-                "iconPath": "",
-                "selectedIconPath": ""
-            },
-            {
-                "pagePath": "pages/classic/classic",
-                "text": "002",
-                "iconPath": "",
-                "selectedIconPath": ""
-            }
-        ]
-    }
+  "pages": [
+    "pages/classic/classic",
+    "components/like/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": true,
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "时光",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "default",
+    "backgroundColor": "#cccccc"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#666",
+    "backgroundColor": "#ccc",
+    "borderStyle": "white",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/classic/classic",
+        "text": "001",
+        "iconPath": "",
+        "selectedIconPath": ""
+      },
+      {
+        "pagePath": "pages/classic/classic",
+        "text": "002",
+        "iconPath": "",
+        "selectedIconPath": ""
+      }
+    ]
+  }
 }
