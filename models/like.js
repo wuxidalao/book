@@ -7,8 +7,8 @@ class LikeModel extends HTTP {
             url: url,
             methods: 'POST',
             data() {
-                art_id: artID;
-                type: category;
+                art_id: artID
+                type: category
             },
         })
     }
