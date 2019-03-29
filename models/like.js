@@ -9,7 +9,7 @@ class LikeModel extends HTTP {
             data() {
                 art_id: artID
                 type: category
-            },
+            }
         })
     }
 }

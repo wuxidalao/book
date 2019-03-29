@@ -16,20 +16,20 @@
     "tabBar": {
         "color": "#000",
         "selectedColor": "#666",
-        "backgroundColor": "#ccc",
-        "borderStyle": "white",
+        "backgroundColor": "#fff",
+        "borderStyle": "black",
         "position": "bottom",
         "list": [{
                 "pagePath": "pages/classic/classic",
                 "text": "001",
-                "iconPath": "",
-                "selectedIconPath": ""
+                "iconPath": "pages/images/classic.png",
+                "selectedIconPath": "pages/images/classic@highlight.png"
             },
             {
                 "pagePath": "pages/classic/classic",
                 "text": "002",
-                "iconPath": "",
-                "selectedIconPath": ""
+                "iconPath": "pages/images/classic.png",
+                "selectedIconPath": "pages/images/classic@highlight.png"
             }
         ]
     }
