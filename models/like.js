@@ -15,3 +15,4 @@ class LikeModel extends HTTP {
 }
 
 export { LikeModel }
+

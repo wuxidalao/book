@@ -26,6 +26,7 @@ Component({
      */
     methods: {
         onLike: function(event) {
+            //自定义事件
             let like = this.properties.like
             let count = this.properties.count
 
@@ -34,8 +35,8 @@ Component({
                 count: count,
                 like: !like
             })
-
-            let behavior = this.properties.like ? 'leke' : 'cancel'
+            //激活
+            let behavior = this.properties.like ? 'like' : 'cancel'
             this.triggerEvent('like', {
                 behavior: behavior
             }, {})
