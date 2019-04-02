@@ -5,11 +5,11 @@ Component({
    */
   properties: {
     index:{
-      type:Number,
+      type:String,
       observer:function(newVal, oldVal, changedPath){
         let val = newVal < 10?'0'+newVal:newVal
         this.setData({
-          index:val
+          _index:val
         })
       }
     }
@@ -20,7 +20,8 @@ Component({
    */
   data: {
     year:0,
-    month:''
+    month:'',
+    _index:''
   },
   attached:function(){
 
