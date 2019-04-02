@@ -1,1 +1,1 @@
-/* pages/classic/classic.wxss */
+.header{ display: flex; align-items: flex-end; justify-content: flex-start;}
