@@ -1,10 +1,10 @@
-.container{ display: flex;}
+.container{ height: 60rpx; display: inline-flex; flex-direction: row;}
 
-.index-container{ display: flex;}
-.plain{ font-size: 30rpx;}
-.index{ font-size: 50rpx; color: #000; font-size: 65rpx;}
-.line{ height: 50rpx; width: 1px; background:red;}
+.index-container{ display: flex; flex-direction: row; align-items: baseline;}
+.plain{ font-size: 32rpx;}
+.index{ font-size: 60rpx; line-height: 60rpx; font-weight: 800; color: #000;}
+.line{ height: 44rpx; width: 1px; background:black; margin:0 10rpx 0 10rpx;}
 
-.date-container{ font-size: 30rpx; width: 70rpx; line-height: 27rpx;}
-.month{}
-.year{}
+.date-container{ display: flex; flex-direction: column; margin-top: 5rpx;}
+.month{ font-size: 24rpx; line-height: 24rpx;}
+.year{ font-size: 20rpx;}
