@@ -41,7 +41,7 @@ Page({
     },
 
     _updateClassic:function(nextOrPrevious){
-      let index = this.data.classic.index
+      let index = this.data.Classic.index
       ClassicModelNew.getClassic(index, nextOrPrevious, (res) => {
         // console.log(res)
         this.setData({
