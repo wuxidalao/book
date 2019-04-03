@@ -1,2 +1,7 @@
-<!--components/navi.wxml-->
-<text>components/navi.wxml</text>
+<view class='container'>
+  <!-- 如果最新一期为真，左按钮则为灰色，否则为黑色 -->
+  <image bind:tap="onLeft" class='icon' src='{{latest?disLeftSrc:leftSrc}}'/>
+  <text class='title'>{{title}}</text>
+  <!-- 如果第一期为真，右按钮则为灰色，否则为黑色 -->
+  <image bind:tap="onRight" class='icon' src='{{first?disRightSrc:rightSrc}}'/>
+</view>
