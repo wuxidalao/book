@@ -1,8 +1,8 @@
 import { ClassicModel } from '../../models/classic.js'
 import { LikeModel } from '../../models/like.js'
 
-let ClassicModelNew = new ClassicModel()
-let LikeModelNew = new LikeModel()
+let classicModel = new ClassicModel()
+let likeModel = new LikeModel()
 
 Page({
     /**
@@ -18,7 +18,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-      ClassicModelNew.getLatest((res) => {
+      classicModel.getLatest((res) => {
             this.setData({
                 classic: res
             })
@@ -29,7 +29,7 @@ Page({
     onLike: function(event) {
         // console.log(event)
         let behavior = event.detail.behavior
-      LikeModelNew.like(behavior, this.data.classic.id, this.data.classic.type)
+      likeModel.like(behavior, this.data.classic.id, this.data.classic.type)
     },
 
     onNext: function(event) {
@@ -40,14 +40,14 @@ Page({
       this._updateClassic('previous')
     },
 
-    _updateClassic:function(nextOrPrevious){
-      let index = this.data.Classic.index
-      ClassicModelNew.getClassic(index, nextOrPrevious, (res) => {
+    _updateClassic: function (nextOrPrevious) {
+      let index = this.data.classic.index
+      classicModel.getClassic(index, nextOrPrevious, (res) => {
         // console.log(res)
         this.setData({
           classic: res,
-          latest: ClassicModelNew.isLatest(res.index),
-          first: ClassicModelNew.isFirst(res.index)
+          latest: classicModel.isLatest(res.index),
+          first: classicModel.isFirst(res.index)
         })
       })
     },
