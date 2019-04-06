@@ -1,7 +1,8 @@
 let classicBeh = Behavior({
   properties: {
     img:String,
-    content:String
+    content:String,
+    hidden:Boolean
   },
   // 生命周期函数
   attached:function(){
