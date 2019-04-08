@@ -4,7 +4,9 @@
     "components/like/index",
     "components/epsoide/index",
     "components/navi/index",
-    "components/classic/movie/index"
+    "components/classic/movie/index",
+    "components/classic/music/index",
+    "components/classic/essay/index"
     
   ],
   "window": {
