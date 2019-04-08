@@ -31,8 +31,8 @@ Component({
                 this.setData({
                     playing: true
                 })
-                mMgr.src = this.properties.src,
-                    mMgr.title = this.properties.title
+                mMgr.src = this.properties.src
+                mMgr.title = this.properties.title
             } else {
                 this.setData({
                     playing: false
