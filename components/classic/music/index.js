@@ -23,7 +23,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        onPlay:function(event){
+        onPlay: function (event) {
             playing:true
         }
     }
