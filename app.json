@@ -1,13 +1,13 @@
 {
     "pages": [
         "pages/classic/classic",
+        "pages/book/book",
+        "pages/my/my",
         "components/like/index",
         "components/episode/index",
         "components/navi/index",
         "components/classic/movie/index",
-        "components/classic/music/index",
-        "components/classic/essay/index"
-
+        "components/classic/music/index"
     ],
     "window": {
         "backgroundTextStyle": "dark",
@@ -19,24 +19,32 @@
         "backgroundColor": "#cccccc"
     },
     "tabBar": {
-        "color": "#000",
-        "selectedColor": "#666",
-        "backgroundColor": "#fff",
+        "color": "#c7c7c7",
+        "selectedColor": "#000000",
+        "backgroundColor": "#ffffff",
         "borderStyle": "black",
         "position": "bottom",
         "list": [{
                 "pagePath": "pages/classic/classic",
-                "text": "001",
+                "text": "流行",
                 "iconPath": "pages/images/classic.png",
                 "selectedIconPath": "pages/images/classic@highlight.png"
             },
             {
-                "pagePath": "pages/classic/classic",
-                "text": "002",
-                "iconPath": "pages/images/classic.png",
-                "selectedIconPath": "pages/images/classic@highlight.png"
+                "pagePath": "pages/book/book",
+                "text": "书单",
+                "iconPath": "pages/images/book.png",
+                "selectedIconPath": "pages/images/book@highlight.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "喜欢",
+                "iconPath": "pages/images/my.png",
+                "selectedIconPath": "pages/images/my@highlight.png"
             }
         ]
     },
-    "requiredBackgroundModes": ["audio"]
+    "requiredBackgroundModes": [
+        "audio"
+    ]
 }
