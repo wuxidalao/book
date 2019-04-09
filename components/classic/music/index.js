@@ -22,6 +22,10 @@ Component({
         playSrc: 'images/player@play.png'
     },
 
+    detached: function(event) {
+        mMgr.stop()
+    },
+
     /**
      * 组件的方法列表
      */
