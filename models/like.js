@@ -1,4 +1,6 @@
-import { HTTP } from '../utils/http.js'
+import {
+    HTTP
+} from '../utils/http.js'
 
 class LikeModel extends HTTP {
     like(behavior, artID, category) {
@@ -13,13 +15,14 @@ class LikeModel extends HTTP {
         })
     }
 
-    getClassicLikeStatus(artID,category,sCallback){
+    getClassicLikeStatus(artID, category, sCallback) {
         this.request({
-            url:'classic/' + category + '/' + artID + '/favor',
-            success:sCallback
+            url: 'classic/' + category + '/' + artID + '/favor',
+            success: sCallback
         })
     }
 }
 
-export { LikeModel }
-
+export {
+    LikeModel
+}
