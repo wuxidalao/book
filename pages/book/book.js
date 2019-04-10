@@ -15,6 +15,8 @@ Page({
         const promise = new Promise((resolve, reject) => {
             // pending fulfilled rejected
             //进行中 已成功 已失败
+            //Promise 构造函数包含一个参数和一个带有 resolve（解析）和 reject（拒绝）两个参数的回调。
+            //在回调中执行一些操作（例如异步），如果一切都正常，则调用 resolve，否则调用 reject。
             wx.getSystemInfo({
                 success: (res) => {
                     resolve(res)
