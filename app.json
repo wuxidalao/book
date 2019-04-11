@@ -28,20 +28,20 @@
         "list": [{
                 "pagePath": "pages/classic/classic",
                 "text": "流行",
-                "iconPath": "pages/images/classic.png",
-                "selectedIconPath": "pages/images/classic@highlight.png"
+                "iconPath": "images/classic.png",
+                "selectedIconPath": "images/classic@highlight.png"
             },
             {
                 "pagePath": "pages/book/book",
                 "text": "书单",
-                "iconPath": "pages/images/book.png",
-                "selectedIconPath": "pages/images/book@highlight.png"
+                "iconPath": "images/book.png",
+                "selectedIconPath": "images/book@highlight.png"
             },
             {
                 "pagePath": "pages/my/my",
                 "text": "喜欢",
-                "iconPath": "pages/images/my.png",
-                "selectedIconPath": "pages/images/my@highlight.png"
+                "iconPath": "images/my.png",
+                "selectedIconPath": "images/my@highlight.png"
             }
         ]
     },
