@@ -6,6 +6,7 @@
         "components/like/index",
         "components/episode/index",
         "components/navi/index",
+        "components/book/index",
         "components/classic/movie/index",
         "components/classic/music/index"
     ],

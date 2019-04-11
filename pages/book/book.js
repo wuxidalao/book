@@ -10,44 +10,19 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        books: []
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function(optins) {
         bookModel.getHotList()
             .then(res => {
-                console.log(res)
-                return bookModel.getMyBookCount()
+                this.setData({
+                    books: res
+                })
             })
-            .then(res => {
-                console.log(res)
-                return bookModel.getMyBookCount()
-            })
-            .then(res => {
-                console.log(res)
-            })
-            // const promise = new Promise((resolve, reject) => {
-            //     // pending fulfilled rejected
-            //     //进行中 已成功 已失败
-            //     //Promise 构造函数包含 resolve（解析）和 reject（拒绝）两个参数的回调。
-            //     wx.getSystemInfo({
-            //         success: (res) => {
-            //             resolve(res)
-            //         },
-            //         fail: (error) => {
-            //             reject(error)
-            //         }
-            //     })
-            // })
-            // promise.then((res) => {
-            //     console.log(res)
-            // }, (error) => {
-            //     console.log(res)
-            // })
-
     },
 
     /**
