@@ -1,6 +1,4 @@
-<!--<block wx:for="{{books}}">
-  <w-book book="{{item}}" />
-</block>-->
+
 
 <view class="container">
     <view class="header">
@@ -11,6 +9,11 @@
     </view>
     <view class="sub-container ">
       <image class="head-img" src="/images/book/quality.png" />
+      <view class="books-container">
+        <block wx:for="{{books}}">
+          <w-book book="{{item}}" />
+        </block>
+      </view>
     </view> 
 </view>
   
