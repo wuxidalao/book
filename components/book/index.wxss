@@ -18,8 +18,8 @@
     width: 216rpx;
     position: absolute;
     bottom: 0;
-    background: #fff;
-    padding: 5rpx 10rpx 8rpx 15prx;
+    background-color: #fff;
+    padding: 5rpx 10rpx 8rpx 15rpx;
     font-size: 24rpx;
     display: flex;
     flex-direction: column;
