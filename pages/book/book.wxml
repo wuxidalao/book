@@ -1,1 +1,4 @@
-<w-book book="{{books[0]}}" />
+<block wx:for="{{books}}">
+  <w-book book="{{item}}" />
+</block>
+  
