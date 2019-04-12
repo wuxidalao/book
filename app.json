@@ -3,13 +3,7 @@
         "pages/classic/classic",
         "pages/book/book",
         "pages/my/my",
-        "components/like/index",
-        "components/episode/index",
-        "components/navi/index",
-        "components/book/index",
-        "pages/book-detail/book-detail",
-        "components/classic/movie/index",
-        "components/classic/music/index"
+        "pages/book-detail/book-detail"
 
     ],
     "window": {
