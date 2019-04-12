@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    widht: 100%;
+    width: 100%;
 }
 
 .sub-container {

@@ -3,26 +3,48 @@ import {
 } from '../../models/book.js'
 
 const bookModel = new BookModel()
-
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        books: []
+        comments: [],
+        book: null,
+        likeStatus: false,
+        liekCout: 0
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        bookModel.getHotList()
-            .then(res => {
-                this.setData({
-                    books: res
-                })
+        const bid = options.bid
+        const detail = bookModel.getDetail(bid)
+        const comments = bookModel.getComments(bid)
+        const likeStatus = bookModel.getLikeStatus(bid)
+
+        detail.then(res => {
+            this.setData({
+                book: res
             })
+            console.log(res)
+        })
+
+        comments.then(res => {
+            this.setData({
+                comments: res
+            })
+            console.log(res)
+        })
+
+        likeStatus.then(res => {
+            this.setData({
+                likeStatus: res.like_status,
+                likeCount: res.fav_nums
+            })
+            console.log(res)
+        })
     },
 
     /**

@@ -7,8 +7,10 @@
         "components/episode/index",
         "components/navi/index",
         "components/book/index",
+        "pages/book-detail/book-detail",
         "components/classic/movie/index",
         "components/classic/music/index"
+
     ],
     "window": {
         "backgroundTextStyle": "dark",
