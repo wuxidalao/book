@@ -94,13 +94,13 @@
   flex-direction: row;
   justify-content: flex-start;
   font-size: 28rpx;
-  margin-bottom:50rpx;
+  margin:0 0 50rpx 40rpx;
 }
 
 .vertical{
   display: flex;
   flex-direction: column;
-  padding: 0 25rpx;
+  
 }
 
 .description{
