@@ -26,32 +26,45 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        wx.showLoading()
         const bid = options.bid
         const detail = bookModel.getDetail(bid)
         const comments = bookModel.getComments(bid)
         const likeStatus = bookModel.getLikeStatus(bid)
-
-        detail.then(res => {
-            this.setData({
-                book: res
+        //.race竞争
+        Promise.all([detail, comments, likeStatus])
+            .then(res => {
+                // console.log(res)
+                this.setData({
+                    book: res[0],
+                    comments: res[1].comments,
+                    likeStatus: res[2].like_status,
+                    likeCount: res[2].fav_nums
+                })
+                wx.hideLoading()
             })
-            console.log(res)
-        })
 
-        comments.then(res => {
-            this.setData({
-                comments: res.comments
-            })
-            console.log(res)
-        })
+        // detail.then(res => {
+        //     this.setData({
+        //         book: res
+        //     })
+                
+        // })
 
-        likeStatus.then(res => {
-            this.setData({
-                likeStatus: res.like_status,
-                likeCount: res.fav_nums
-            })
-            console.log(res)
-        })
+        // comments.then(res => {
+        //     this.setData({
+        //         comments: res.comments
+        //     })
+                
+        // })
+
+        // likeStatus.then(res => {
+        //     this.setData({
+        //         likeStatus: res.like_status,
+        //         likeCount: res.fav_nums
+        //     })
+                
+        // })
     },
 
     onLike(event) {
@@ -72,7 +85,11 @@ Page({
     },
 
     onPost(event) {
-        const comment = event.detail.text
+        const comment = event.detail.text || event.detail.value
+
+        if (!comment) {
+            return
+        }
 
         if (comment.lenght > 12) {
             wx.showToast({
@@ -90,12 +107,13 @@ Page({
                 })
 
                 this.data.comments.unshift({
-                    comment: comment,
+                    content: comment,
                     nums: 1
                 })
 
                 this.setData({
-                    comments: this.data.comments
+                    comments: this.data.comments,
+                    posting: false
                 })
             })
     },
