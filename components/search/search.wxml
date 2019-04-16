@@ -1,2 +1,10 @@
-<!--components/search/search.wxml-->
-<text>components/search/search.wxml</text>
+<view class="container">
+  <view class='header'>
+    <view class='search-container'>
+      <image class='icon' src='images/search.png'></image>
+      <input placeholder-class='in-bar' placeholder='书籍名' class='bar' auto-focus='true'></input>
+      <image class='cancel-img' src='images/cancel.png'></image>
+    </view>
+    <view class='cancel'>取消</view>
+  </view>
+</view>
