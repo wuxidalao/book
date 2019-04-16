@@ -1,7 +1,6 @@
 <wxs src="../../utils/filter.wxs" module="utils" />
 
 <view class='container'>
-
   <view class='head'>
     <image src='{{book.image}}'></image>
     <text class='title'>{{book.title}}</text>
@@ -12,7 +11,7 @@
     <text class='headline'>短评</text>
     <view class="comment-container">
       <block wx:for="{{utils.limit(comments, 10)}}" wx:key="content">
-        <w-tag tag-class="{{index==0?'ex-tag1':'' || index==1?'ex-tag2':''}}" text="{{item.content}}">
+        <w-tag tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
           <text class="num" slot="after">{{'+'+item.nums}}</text>
         </w-tag>
       </block>
@@ -43,7 +42,48 @@
       </view>
     </view>
   </view>
-
-
-
 </view>
+
+<view class='post-containder' wx:if="{{!posting}}">
+  <view bind:tap="onFakePost" class='post-fake'>
+    <text>输入短评</text>
+  </view>
+  <view class='like-container'>
+    <w-like bind:like="onLike" class="like" like="{{likeStatus}}" count="{{likeCount}}" />
+  </view>
+</view>
+
+<w-mask wx:if="{{posting}}" />
+
+<view class='posting-container' wx:if="{{posting}}">
+  <view class='post-header'>
+    <text>仅可点击标签+1</text>
+    <text bind:tap="onCancel" class='cancel'>取消</text>
+  </view>
+  <view class='comment-container'>
+    <block wx:for="{{utils.limit(comments, 3)}}" wx:key="content">
+      <w-tag bind:tapping="onPost" tag-class="{{tool.highlight(index)}}" text="{{item.content}}">
+        <text class="num" slot="after">{{'+'+item.nums}}</text>
+      </w-tag>
+    </block>
+  </view>
+  <input class='post' placeholder='短评最多12个字'></input>
+</view>
+
+
+<!-- 短评高亮 -->
+<wxs module="tool">
+  var highlight = function(index){
+    if(index==0){
+      return 'ex-tag1'
+    }
+    if(index==1){
+      return 'ex-tag2'
+    }
+    return ''
+  }
+
+  module.exports = {
+    highlight:highlight
+  }
+</wxs>
