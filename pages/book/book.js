@@ -10,7 +10,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        books: []
+        books: [],
+        searching:false
     },
 
     /**
@@ -25,6 +26,11 @@ Page({
             })
     },
 
+    onSearching(event){
+      this.setData({
+        searching:true
+      })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
