@@ -1,38 +1,38 @@
 import {
-  HTTP
+    HTTP
 } from '../utils/http.js'
 
 
-class KeyWordModel{
-  key = 'q'
-  maxLength = 10
-  getHistory(){
-    const words = wx.getStorageSync(this.key)
-    if(!words){
-      return []
+class KeywordModel {
+    key = 'q'
+    maxLength = 10
+    getHistory() {
+        const words = wx.getStorageSync(this.key)
+        if (!words) {
+            return []
+        }
+        return words
     }
-    return words
-  }
 
-  getHot(){
+    getHot() {
 
-  }
-
-  addToHistory(keyword){
-    let words = this.getHistory()
-    const has = words.includes(keyword)
-    if(!has){
-      const length = words.length
-      if(length >= this.maxLength){
-        words.pop()
-      }
-      words.unshift(keyword)
-      wx.setStorageSync(this.key, words)
     }
-    
-  }
+
+    addToHistory(keyword) {
+        let words = this.getHistory()
+        const has = words.includes(keyword)
+        if (!has) {
+            const length = words.length
+            if (length >= this.maxLength) {
+                words.pop()
+            }
+            words.unshift(keyword)
+            wx.setStorageSync(this.key, words)
+        }
+
+    }
 }
 
 export {
-  KeyWordModel
+    KeywordModel
 }
