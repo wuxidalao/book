@@ -11,7 +11,7 @@ Page({
      */
     data: {
         books: [],
-        searching:false
+        searching: false
     },
 
     /**
@@ -26,10 +26,16 @@ Page({
             })
     },
 
-    onSearching(event){
-      this.setData({
-        searching:true
-      })
+    onSearching(event) {
+        this.setData({
+            searching: true
+        })
+    },
+
+    onCancel(even) {
+        this.setData({
+            searching: false
+        })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
