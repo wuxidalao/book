@@ -29,7 +29,8 @@ Component({
     hotWords: [],
     dataArray: [],
     searching: false,
-    q:''
+    q:'',
+    loading:false
   },
 
   attached() {
@@ -52,6 +53,22 @@ Component({
   methods: {
     _load_more(){
       console.log(1111111111)
+      if(!this.data.q){
+        return
+      }
+      if(this.data.loading){
+        return
+      }
+      const length = this.data.dataArray.length
+      this.data.loading = true
+      bookModel.search(length,this.data.q)
+      .then(res=>{
+        const tempArray = this.data.dataArray.concat(res.books)
+        this.setData({
+          dataArray:tempArray,
+        })
+        this.data.loading = false
+      })
     },
 
     onCancel() {
