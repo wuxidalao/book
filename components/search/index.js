@@ -1,105 +1,123 @@
 import {
-  KeywordModel
+    KeywordModel
 } from '../../models/keyword.js'
 
 import {
-  BookModel
+    BookModel
 } from '../../models/book.js'
+
+import {
+    paginationBev
+} from '../behaviors/pagination.js'
 
 const keywordModel = new KeywordModel()
 
 const bookModel = new BookModel()
 
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    more:{
-      type:String,
-      observer:'_load_more'
-    }
-  },
+    /**
+     * 组件的属性列表
+     */
+    behaviors: [paginationBev],
+    properties: {
+        more: {
+            type: String,
+            observer: 'loadMore'
+        }
+    },
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
-    historyWords: [],
-    hotWords: [],
-    dataArray: [],
-    searching: false,
-    q:'',
-    loading:false
-  },
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        historyWords: [],
+        hotWords: [],
+        searching: false,
+        q: '',
+        loading: false
+    },
 
-  attached() {
-    //const historyWords = keywordModel.getHistory()
-    //const hotWords = keywordModel.getHot()
-    this.setData({
-      historyWords: keywordModel.getHistory()
-    })
-
-    keywordModel.getHot().then(res => {
-      this.setData({
-        hotWords: res.hot
-      })
-    })
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-    _load_more(){
-      console.log(1111111111)
-      if(!this.data.q){
-        return
-      }
-      if(this.data.loading){
-        return
-      }
-      const length = this.data.dataArray.length
-      this.data.loading = true
-      bookModel.search(length,this.data.q)
-      .then(res=>{
-        const tempArray = this.data.dataArray.concat(res.books)
+    attached() {
         this.setData({
-          dataArray:tempArray,
+            historyWords: keywordModel.getHistory()
         })
-        this.data.loading = false
-      })
-    },
 
-    onCancel() {
-      this.triggerEvent('cancel', {}, {})
-    },
-
-    onDelete(event){
-      this.setData({
-        searching:false,
-        q:''    
-      })
-    },
-
-    onConfirm(event) {
-      this.setData({
-        searching: true
-      })
-
-      const q = event.detail.value || event.detail.text
-      bookModel.search(0, q)
-        .then(res => {
-          this.setData({
-            dataArray: res.books,
-            q
-          })
-          keywordModel.addToHistory(q)
+        keywordModel.getHot().then(res => {
+            this.setData({
+                hotWords: res.hot
+            })
         })
     },
 
-    //scroll-view | Page onReachBottom
-    
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+        loadMore() {
+            if (!this.data.q) {
+                return
+            }
+            if (this._isLocked()) {
+                return
+            }
 
-  }
+            if (this.hasMore()) {
+                this._locked()
+                bookModel.search(this.getCurrentStart(), this.data.q)
+                    .then(res => {
+                        this.setMoreData(res.books)
+                        this._unLocked()
+                    })
+            }
+        },
+
+        onCancel() {
+            this.triggerEvent('cancel', {}, {})
+        },
+
+        onDelete(event) {
+            this._colseResult()
+        },
+
+        onConfirm(event) {
+            this._showResult()
+            this.initialize()
+            const q = event.detail.value || event.detail.text
+            bookModel.search(0, q).then(res => {
+                this.setMoreData(res.books)
+                this.setTotal(res.total)
+                this.setData({
+                    q
+                })
+                keywordModel.addToHistory(q)
+            })
+        },
+
+        _showResult() {
+            this.setData({
+                searching: true
+            })
+        },
+
+        _colseResult() {
+            this.setData({
+                searching: false,
+                q: ''
+            })
+        },
+
+        _isLocked() {
+            return this.data.loading ? ture : false
+        },
+
+        _locked() {
+            this.data.loading = true
+        },
+
+        _unLocked() {
+            this.data.loading = false
+        }
+        //scroll-view | Page onReachBottom
+
+    }
 })
