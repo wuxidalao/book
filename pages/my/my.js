@@ -13,12 +13,12 @@ Page({
      */
     onLoad: function(options) {
         this.userAuthorized()
-        wx.getUserInfo({
-            success: data => {
-                //console.log(data)
-            }
+            // wx.getUserInfo({
+            //     success: data => {
+            //         //console.log(data)
+            //     }
 
-        })
+        // })
     },
 
     onGetUserInfo(event) {
