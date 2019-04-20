@@ -35,7 +35,11 @@
 
   <view wx:if="{{searching}}" class='books-container'>
     <block wx:for="{{dataArray}}" wx:key="{{item.id}}">
-      <w-book book="{{item}}" />
+      <w-book showLike="{{false}}" book="{{item}}" />
     </block>
   </view>
+
+  <w-loading class="loading-center" wx:if="{{loadingCenter}}" />
+  <w-loading class="loading" wx:if="{{loading}}" />
+  <text wx:if="{{noneResult}}" class="empty-tip">没有搜索到相关图书</text>
 </view>

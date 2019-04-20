@@ -34,7 +34,8 @@ Component({
         hotWords: [],
         searching: false,
         q: '',
-        loading: false
+        loading: false,
+        loadingCenter: false
     },
 
     attached() {
@@ -57,39 +58,57 @@ Component({
             if (!this.data.q) {
                 return
             }
-            if (this._isLocked()) {
+            if (this.isLocked()) {
                 return
             }
 
             if (this.hasMore()) {
-                this._locked()
+                this.locked()
                 bookModel.search(this.getCurrentStart(), this.data.q)
                     .then(res => {
                         this.setMoreData(res.books)
-                        this._unLocked()
+                        this.unLocked()
+                    }, () => {
+                        this.unLocked()
                     })
             }
         },
 
         onCancel() {
+            this.initialize()
             this.triggerEvent('cancel', {}, {})
         },
 
         onDelete(event) {
+            this.initialize()
             this._colseResult()
         },
 
         onConfirm(event) {
             this._showResult()
-            this.initialize()
+            this._showLoadingCenter()
+            // this.initialize()
             const q = event.detail.value || event.detail.text
+            this.setData({
+              q
+            })
             bookModel.search(0, q).then(res => {
                 this.setMoreData(res.books)
                 this.setTotal(res.total)
-                this.setData({
-                    q
-                })
                 keywordModel.addToHistory(q)
+                this._hideLoadingCenter()
+            })
+        },
+
+        _showLoadingCenter() {
+            this.setData({
+                loadingCenter: true
+            })
+        },
+
+        _hideLoadingCenter() {
+            this.setData({
+                loadingCenter: false
             })
         },
 
@@ -104,19 +123,9 @@ Component({
                 searching: false,
                 q: ''
             })
-        },
-
-        _isLocked() {
-            return this.data.loading ? ture : false
-        },
-
-        _locked() {
-            this.data.loading = true
-        },
-
-        _unLocked() {
-            this.data.loading = false
         }
+
+        
         //scroll-view | Page onReachBottom
 
     }
