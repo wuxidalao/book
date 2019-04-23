@@ -51,6 +51,9 @@
   </view>
   <view class='like-container'>
     <w-like bind:like="onLike" class="like" like="{{likeStatus}}" count="{{likeCount}}" />
+    <w-button class='share-btn' open-type="share">
+        <image class='share' slot="img" src='/images/icon/share.png'></image>
+    </w-button>
   </view>
 </view>
 

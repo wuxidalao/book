@@ -3,8 +3,9 @@
         "pages/classic/classic",
         "pages/book/book",
         "pages/my/my",
-        "pages/book-detail/book-detail"
-
+        "pages/book-detail/book-detail",
+        "pages/about/about",
+        "pages/course/course"
     ],
     "window": {
         "backgroundTextStyle": "dark",
@@ -21,7 +22,8 @@
         "backgroundColor": "#ffffff",
         "borderStyle": "black",
         "position": "bottom",
-        "list": [{
+        "list": [
+            {
                 "pagePath": "pages/classic/classic",
                 "text": "流行",
                 "iconPath": "images/tab/classic.png",
