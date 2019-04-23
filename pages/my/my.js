@@ -5,7 +5,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        authorized: false,
+        userInfo: null
     },
 
     /**
@@ -23,7 +24,12 @@ Page({
 
     onGetUserInfo(event) {
         const userInfo = event.detail.userInfo
-        console.log(userInfo)
+        if (userInfo) {
+            this.setData({
+                userInfo,
+                authorized: true
+            })
+        }
     },
 
     userAuthorized() {
@@ -32,7 +38,11 @@ Page({
                 if (data.authSetting['scope.userInfo']) {
                     wx.getUserInfo({
                         success: data => {
-                            console.log(data)
+                            this.setData({
+                                authorized: true,
+                                userInfo: data.userInfo,
+
+                            })
                         }
                     })
                 } else {

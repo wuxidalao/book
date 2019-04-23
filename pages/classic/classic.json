@@ -5,6 +5,7 @@
         "w-movie": "../../components/classic/movie/index",
         "w-music": "../../components/classic/music/index",
         "w-essay": "../../components/classic/essay/index",
-        "w-navi": "../../components/navi/index"
+        "w-navi": "../../components/navi/index",
+        "w-button": "../../components/image-button/index"
     }
 }
