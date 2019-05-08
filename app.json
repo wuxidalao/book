@@ -11,7 +11,7 @@
         "backgroundTextStyle": "dark",
         "enablePullDownRefresh": true,
         "navigationBarBackgroundColor": "#ffffff",
-        "navigationBarTitleText": "时光",
+        "navigationBarTitleText": "小时光",
         "navigationBarTextStyle": "black",
         "navigationStyle": "default",
         "backgroundColor": "#cccccc"
@@ -45,5 +45,6 @@
     },
     "requiredBackgroundModes": [
         "audio"
-    ]
+    ],
+    "sitemapLocation": "sitemap.json"
 }
