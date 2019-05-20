@@ -19,6 +19,6 @@
 
 .content {
     font-size: 36rpx;
-    width: 550rpx;
+    max-width: 550rpx;
     text-align: center;
 }
