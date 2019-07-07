@@ -1,4 +1,2 @@
-# 我的备注
-小程序练习：
-期刊-电影-音乐
-项目已经完成
+下载微信开发者工具打开
+https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html
